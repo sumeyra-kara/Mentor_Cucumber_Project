@@ -1,20 +1,23 @@
 @regression
 Feature: Login Tests
 
-  Background:
-    Given The user is on the login page
+ # Background:
+  #  Given The user is on the login page
 
-  @selim @smoke @login
+  @login @selim @smoke
   Scenario: Positive Login Test as Selim
+    Given The user is on the login page
     When The user enters valid credentials for Selim
     Then The user should be able to login
 
   @login @rosa @smoke
   Scenario: Positive Login Test as Rosa
-    When The user enters valid credentials for Rosa
+    Given The user is on the login page
+    When The user enters valid credentials email: "rosa@test.com" and password: "Test123456"
     Then The user should be able to login
 
-  @wip @login @mike
+  @login @mike
   Scenario: Positive Login Test as Mike
-    When The user enters valid credentials for Mike
+    Given The user is on the login page
+    When The user enters valid credentials email: "mike@gmail.com" and password: "mike1234"
     Then The user should be able to login
