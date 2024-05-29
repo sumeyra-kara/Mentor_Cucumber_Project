@@ -1,15 +1,21 @@
 package com.euroTech.step_definitions;
 
+import com.euroTech.pages.DashboardPage;
 import com.euroTech.pages.LoginPage;
 import com.euroTech.utilities.ConfigReader;
 import com.euroTech.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.it.Ma;
 import org.junit.Assert;
+
+import java.util.List;
+import java.util.Map;
 
 public class LoginStepDefs {
     LoginPage loginPage = new LoginPage();
+    DashboardPage dashboardPage = new DashboardPage();
 
     @Given("The user is on the login page")
     public void the_user_is_on_the_login_page() {
@@ -39,6 +45,24 @@ public class LoginStepDefs {
     @When("The user enters valid credentials email: {string} and password: {string}")
     public void the_user_enters_valid_credentials_email_and_password(String email,String password) {
       loginPage.login(email,password);
+    }
+
+    @When("The user should be able to login and verify success login with follows")
+    public void the_user_should_be_able_to_login_and_verify_success_login_with_follows(List<String> userInfo) {
+        loginPage.login(userInfo.get(0), userInfo.get(1));
+        String actual = dashboardPage.userName.getText();
+        String expected = userInfo.get(2);
+        Assert.assertEquals(expected,actual);
+
+
+    }
+
+    @When("The user should be able to login and verify success login with following map")
+    public void the_user_should_be_able_to_login_and_verify_success_login_with_following_map(Map<String,String> mapUserInfo) {
+        loginPage.login(mapUserInfo.get("email"),mapUserInfo.get("password"));
+        String actual = dashboardPage.userName.getText();
+        String expected = mapUserInfo.get("username");
+        Assert.assertEquals(expected,actual);
     }
 
 

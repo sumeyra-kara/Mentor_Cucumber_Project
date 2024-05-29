@@ -34,4 +34,7 @@ public class AddEducationPage extends BasePage {
     @FindBy(xpath = "//div[@id='education-add']//label[not(@for='current')]")
     public List<WebElement> formLabels;
 
+    @FindBy(xpath = "//div[@id='education-add']//label")
+    public List<WebElement> formLabelsWithEmptyLabel;
+
 }
