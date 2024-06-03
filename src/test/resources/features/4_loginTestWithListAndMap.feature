@@ -1,4 +1,5 @@
-Feature: Scenario Outline: Lgin Functionalty Test
+@wip
+Feature: Scenario Outline: Login Functionality Test
 
   Scenario: Login with List
     Given The user is on the login page
@@ -8,7 +9,7 @@ Feature: Scenario Outline: Lgin Functionalty Test
     | sevgi           |
 
 
-  @wip
+
   Scenario: Login with Map
     Given The user is on the login page
     When The user should be able to login and verify success login with following map
