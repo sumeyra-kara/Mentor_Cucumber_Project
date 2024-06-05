@@ -1,4 +1,4 @@
-@wip
+
 Feature: Scenario Outline: Login Functionality Test
 
   Scenario: Login with List
