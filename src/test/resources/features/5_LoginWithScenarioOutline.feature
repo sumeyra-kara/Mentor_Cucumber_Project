@@ -27,7 +27,6 @@ Feature: Login Test DDF
       | mike@gmail.com  | mike1234    | mike     |
 
 
-    @wip
     Scenario Outline: Login with List
       Given The user is on the login page
       When The user should be able to login and verify success login with follows

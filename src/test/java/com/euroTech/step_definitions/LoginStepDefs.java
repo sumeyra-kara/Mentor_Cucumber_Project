@@ -2,8 +2,10 @@ package com.euroTech.step_definitions;
 
 import com.euroTech.pages.DashboardPage;
 import com.euroTech.pages.LoginPage;
+import com.euroTech.utilities.BrowserUtils;
 import com.euroTech.utilities.ConfigReader;
 import com.euroTech.utilities.Driver;
+import com.euroTech.utilities.ExcelUtil;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -53,8 +55,6 @@ public class LoginStepDefs {
         String actual = dashboardPage.userName.getText();
         String expected = userInfo.get(2);
         Assert.assertEquals(expected,actual);
-
-
     }
 
     @When("The user should be able to login and verify success login with following map")
@@ -63,6 +63,16 @@ public class LoginStepDefs {
         String actual = dashboardPage.userName.getText();
         String expected = mapUserInfo.get("username");
         Assert.assertEquals(expected,actual);
+    }
+
+
+    @When("The user logins with {string} and {string} using excel: {string}, {string},{int}")
+    public void the_user_logins_with_and_using_excel(String email, String password, String path, String sheetName, int rowNumber) {
+        List<Map<String, String>> excelData = BrowserUtils.getExcelData(path, sheetName);
+        loginPage.login(excelData.get(rowNumber).get(email),excelData.get(rowNumber).get(password));
+
+
+
     }
 
 
