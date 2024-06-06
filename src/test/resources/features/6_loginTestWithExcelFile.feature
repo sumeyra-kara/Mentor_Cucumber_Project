@@ -1,4 +1,4 @@
-@wip
+@regression
 Feature: Login Test with Excel File
   Scenario Outline: Login Test with Excel
     Given The user is on the login page
