@@ -52,7 +52,6 @@ public class Driver {
                 case "remote_chrome":
                     ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.setCapability("platform", Platform.ANY);
-
                     try{
                        // driverPool.set(new RemoteWebDriver(new URL("http://remote_IP/wd/hub"),chromeOptions));
                         driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),chromeOptions));

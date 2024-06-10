@@ -1,4 +1,4 @@
-
+@regression
 Feature: Add Education Test
 
   Background:
